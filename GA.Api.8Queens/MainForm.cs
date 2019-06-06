@@ -149,6 +149,17 @@ namespace GA.Api._8Queens
 
         private void Gs_SolutionFound(object sender, SolutionFoundEventArgs e)
         {
+            var solution = e.Solution;
+
+            queen_positions = new List<Point>();
+
+            foreach (var pt in solution.Data)
+            {
+                queen_positions.Add((Point)pt);
+            }
+
+            Chessboard.Refresh();
+
             MessageBox.Show("Solution found");
         }
 

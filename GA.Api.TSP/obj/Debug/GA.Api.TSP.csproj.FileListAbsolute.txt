@@ -1,0 +1,13 @@
+C:\Apps\GA.Api\GA.Api.TSP\bin\Debug\GA.Api.TSP.exe.config
+C:\Apps\GA.Api\GA.Api.TSP\bin\Debug\GA.Api.TSP.exe
+C:\Apps\GA.Api\GA.Api.TSP\bin\Debug\GA.Api.TSP.pdb
+C:\Apps\GA.Api\GA.Api.TSP\obj\Debug\GA.Api.TSP.csprojAssemblyReference.cache
+C:\Apps\GA.Api\GA.Api.TSP\obj\Debug\GA.Api.TSP.MainForm.resources
+C:\Apps\GA.Api\GA.Api.TSP\obj\Debug\GA.Api.TSP.Properties.Resources.resources
+C:\Apps\GA.Api\GA.Api.TSP\obj\Debug\GA.Api.TSP.csproj.GenerateResource.cache
+C:\Apps\GA.Api\GA.Api.TSP\obj\Debug\GA.Api.TSP.csproj.CoreCompileInputs.cache
+C:\Apps\GA.Api\GA.Api.TSP\obj\Debug\GA.Api.TSP.exe
+C:\Apps\GA.Api\GA.Api.TSP\obj\Debug\GA.Api.TSP.pdb
+C:\Apps\GA.Api\GA.Api.TSP\bin\Debug\GA.Api.dll
+C:\Apps\GA.Api\GA.Api.TSP\bin\Debug\GA.Api.pdb
+C:\Apps\GA.Api\GA.Api.TSP\obj\Debug\GA.Api.TSP.csproj.CopyComplete
