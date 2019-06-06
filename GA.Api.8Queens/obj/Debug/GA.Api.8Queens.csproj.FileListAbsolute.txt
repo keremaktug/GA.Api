@@ -1,0 +1,15 @@
+C:\Apps\GA.Api\GA.Api.8Queens\bin\Debug\images\chessboard.png
+C:\Apps\GA.Api\GA.Api.8Queens\bin\Debug\images\queen.png
+C:\Apps\GA.Api\GA.Api.8Queens\bin\Debug\GA.Api.8Queens.exe.config
+C:\Apps\GA.Api\GA.Api.8Queens\bin\Debug\GA.Api.8Queens.exe
+C:\Apps\GA.Api\GA.Api.8Queens\bin\Debug\GA.Api.8Queens.pdb
+C:\Apps\GA.Api\GA.Api.8Queens\obj\Debug\GA.Api._8Queens.Properties.Resources.resources
+C:\Apps\GA.Api\GA.Api.8Queens\obj\Debug\GA.Api.8Queens.csproj.GenerateResource.cache
+C:\Apps\GA.Api\GA.Api.8Queens\obj\Debug\GA.Api.8Queens.csproj.CoreCompileInputs.cache
+C:\Apps\GA.Api\GA.Api.8Queens\obj\Debug\GA.Api.8Queens.exe
+C:\Apps\GA.Api\GA.Api.8Queens\obj\Debug\GA.Api.8Queens.pdb
+C:\Apps\GA.Api\GA.Api.8Queens\obj\Debug\GA.Api._8Queens.MainForm.resources
+C:\Apps\GA.Api\GA.Api.8Queens\obj\Debug\GA.Api.8Queens.csprojAssemblyReference.cache
+C:\Apps\GA.Api\GA.Api.8Queens\bin\Debug\GA.Api.dll
+C:\Apps\GA.Api\GA.Api.8Queens\bin\Debug\GA.Api.pdb
+C:\Apps\GA.Api\GA.Api.8Queens\obj\Debug\GA.Api.8Queens.csproj.CopyComplete
