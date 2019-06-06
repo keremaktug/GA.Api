@@ -5,36 +5,6 @@ namespace GA.Api.Math
 {
     public static class MathHelper
     {
-        public static int Bin2Dec(string number)
-        {
-            var r = 0;
-
-            for (var i = 0; i < number.Length; i++)
-            {
-                if (number[i] == '1')
-                {
-                    r += (int)System.Math.Pow(2, 8 - i - 1);
-                }
-            }
-
-            return r;
-        }
-
-        public static string Dec2Bin(int number)
-        {
-            var binary = string.Empty;
-
-            while (number > 0)
-            {
-                binary = (number & 1) + binary;
-                number = number >> 1;
-            }
-
-            binary = binary.PadLeft(8, '0');
-
-            return binary;
-        }
-
         public static double Mean(List<int> values)
         {
             return values.Average();

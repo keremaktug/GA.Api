@@ -40,8 +40,7 @@ namespace GA.Api.Types
 
         public double AverageFitness()
         {
-            var avg = Chromosomes.Average(x => x.Fitness);
-            return avg;
+            return Chromosomes.Average(x => x.Fitness);
         }
     }
 }
