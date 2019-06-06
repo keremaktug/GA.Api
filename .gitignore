@@ -1,3 +1,7 @@
 /.vs
 /GA.Api/obj
 /GA.Api/bin
+/GA.Api.LinearEquationSolver/obj
+/GA.Api.LinearEquationSolver/bin
+/GA.Api.PhraseEvolution/bin
+/GA.Api.PhraseEvolution/obj
