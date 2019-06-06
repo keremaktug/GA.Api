@@ -1,0 +1,13 @@
+C:\Apps\GA.Api\GA.Api.CardsProblem\bin\Debug\GA.Api.CardsProblem.exe.config
+C:\Apps\GA.Api\GA.Api.CardsProblem\bin\Debug\GA.Api.CardsProblem.exe
+C:\Apps\GA.Api\GA.Api.CardsProblem\bin\Debug\GA.Api.CardsProblem.pdb
+C:\Apps\GA.Api\GA.Api.CardsProblem\obj\Debug\GA.Api.CardsProblem.csprojAssemblyReference.cache
+C:\Apps\GA.Api\GA.Api.CardsProblem\obj\Debug\GA.Api.CardsProblem.MainForm.resources
+C:\Apps\GA.Api\GA.Api.CardsProblem\obj\Debug\GA.Api.CardsProblem.Properties.Resources.resources
+C:\Apps\GA.Api\GA.Api.CardsProblem\obj\Debug\GA.Api.CardsProblem.csproj.GenerateResource.cache
+C:\Apps\GA.Api\GA.Api.CardsProblem\obj\Debug\GA.Api.CardsProblem.csproj.CoreCompileInputs.cache
+C:\Apps\GA.Api\GA.Api.CardsProblem\obj\Debug\GA.Api.CardsProblem.exe
+C:\Apps\GA.Api\GA.Api.CardsProblem\obj\Debug\GA.Api.CardsProblem.pdb
+C:\Apps\GA.Api\GA.Api.CardsProblem\bin\Debug\GA.Api.dll
+C:\Apps\GA.Api\GA.Api.CardsProblem\bin\Debug\GA.Api.pdb
+C:\Apps\GA.Api\GA.Api.CardsProblem\obj\Debug\GA.Api.CardsProblem.csproj.CopyComplete

@@ -98,8 +98,8 @@ namespace GA.Api.Graphic
             
             var color_scheme = GenerateColorScheme(domain_values.Count);
 
-            float xstep = chart_width / sw + x_offset;
-            float ystep = chart_height / sh + y_offset;
+            float xstep = (chart_width / sw) + x_offset;
+            float ystep = (chart_height / sh) + y_offset;
 
             for (int i = 0; i < sw; i++)
             {
@@ -108,8 +108,8 @@ namespace GA.Api.Graphic
                 for (int j = 0; j < sh; j++)
                 {
                     float dy = ystep * j;
-                    var letter = population.Chromosomes[j].Data[i];
-                    var index = domain_values.IndexOf((char)letter);
+                    var individual = population.Chromosomes[j].Data[i];
+                    var index = domain_values.IndexOf(individual);
                     r.Add(new RectangleF(dx, dy, xstep, ystep), color_scheme[index]);
                 }
             }

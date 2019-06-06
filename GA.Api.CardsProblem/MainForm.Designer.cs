@@ -1,4 +1,4 @@
-﻿namespace GA.Api.PhraseEvolution.GUI
+﻿namespace GA.Api.CardsProblem
 {
     partial class MainForm
     {
@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.resultlist = new System.Windows.Forms.ListBox();
+            this.PopulationChart = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.cmbPopulationSize = new System.Windows.Forms.ComboBox();
@@ -42,12 +44,28 @@
             this.cmbMutationType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.PopulationChart = new System.Windows.Forms.PictureBox();
-            this.resultlist = new System.Windows.Forms.ListBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PopulationChart)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PopulationChart)).BeginInit();
             this.SuspendLayout();
+            // 
+            // resultlist
+            // 
+            this.resultlist.FormattingEnabled = true;
+            this.resultlist.Location = new System.Drawing.Point(149, 12);
+            this.resultlist.Name = "resultlist";
+            this.resultlist.Size = new System.Drawing.Size(724, 277);
+            this.resultlist.TabIndex = 10;
+            // 
+            // PopulationChart
+            // 
+            this.PopulationChart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PopulationChart.Location = new System.Drawing.Point(453, 296);
+            this.PopulationChart.Name = "PopulationChart";
+            this.PopulationChart.Size = new System.Drawing.Size(420, 300);
+            this.PopulationChart.TabIndex = 9;
+            this.PopulationChart.TabStop = false;
+            this.PopulationChart.Paint += new System.Windows.Forms.PaintEventHandler(this.PopulationChart_Paint);
             // 
             // groupBox1
             // 
@@ -60,10 +78,10 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cmbMutationType);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 2);
+            this.groupBox1.Location = new System.Drawing.Point(7, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(136, 287);
-            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 
             // btnStart
@@ -99,9 +117,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 174);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 13);
+            this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Population Size (1024)";
+            this.label4.Text = "Population Size";
             // 
             // cmbElitismRate
             // 
@@ -180,64 +198,49 @@
             // 
             this.chart1.BorderlineColor = System.Drawing.Color.Black;
             this.chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(12, 294);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
+            this.chart1.Location = new System.Drawing.Point(7, 297);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(440, 300);
-            this.chart1.TabIndex = 5;
+            this.chart1.TabIndex = 11;
             this.chart1.Text = "chart1";
-            // 
-            // PopulationChart
-            // 
-            this.PopulationChart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PopulationChart.Location = new System.Drawing.Point(458, 294);
-            this.PopulationChart.Name = "PopulationChart";
-            this.PopulationChart.Size = new System.Drawing.Size(420, 300);
-            this.PopulationChart.TabIndex = 6;
-            this.PopulationChart.TabStop = false;
-            this.PopulationChart.Paint += new System.Windows.Forms.PaintEventHandler(this.PopulationChart_Paint);
-            // 
-            // resultlist
-            // 
-            this.resultlist.FormattingEnabled = true;
-            this.resultlist.Location = new System.Drawing.Point(154, 10);
-            this.resultlist.Name = "resultlist";
-            this.resultlist.Size = new System.Drawing.Size(724, 277);
-            this.resultlist.TabIndex = 7;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 604);
+            this.ClientSize = new System.Drawing.Size(880, 601);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.resultlist);
             this.Controls.Add(this.PopulationChart);
-            this.Controls.Add(this.chart1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Phrase Evolution GUI";
+            this.Text = "Cards Problem";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PopulationChart)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PopulationChart)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.ListBox resultlist;
+        private System.Windows.Forms.PictureBox PopulationChart;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.ComboBox cmbPopulationSize;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbElitismRate;
@@ -247,9 +250,6 @@
         private System.Windows.Forms.ComboBox cmbMutationType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.PictureBox PopulationChart;
-        private System.Windows.Forms.ListBox resultlist;
-        private System.Windows.Forms.Button btnStart;
     }
 }
 
