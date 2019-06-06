@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GA.Api.LinearEquationSolver
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GA.Api.PhraseEvolution", "GA.Api.PhraseEvolution\GA.Api.PhraseEvolution.csproj", "{2F07F475-CFCB-4747-9733-3FA2C2769093}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GA.Api.PhraseEvolution.GUI", "GA.Api.PhraseEvolution.GUI\GA.Api.PhraseEvolution.GUI.csproj", "{39AB1CA4-AC39-47E5-BB9F-E44FF15B282B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{2F07F475-CFCB-4747-9733-3FA2C2769093}.Release|x64.Build.0 = Release|Any CPU
 		{2F07F475-CFCB-4747-9733-3FA2C2769093}.Release|x86.ActiveCfg = Release|Any CPU
 		{2F07F475-CFCB-4747-9733-3FA2C2769093}.Release|x86.Build.0 = Release|Any CPU
+		{39AB1CA4-AC39-47E5-BB9F-E44FF15B282B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39AB1CA4-AC39-47E5-BB9F-E44FF15B282B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39AB1CA4-AC39-47E5-BB9F-E44FF15B282B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{39AB1CA4-AC39-47E5-BB9F-E44FF15B282B}.Debug|x64.Build.0 = Debug|Any CPU
+		{39AB1CA4-AC39-47E5-BB9F-E44FF15B282B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{39AB1CA4-AC39-47E5-BB9F-E44FF15B282B}.Debug|x86.Build.0 = Debug|Any CPU
+		{39AB1CA4-AC39-47E5-BB9F-E44FF15B282B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39AB1CA4-AC39-47E5-BB9F-E44FF15B282B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39AB1CA4-AC39-47E5-BB9F-E44FF15B282B}.Release|x64.ActiveCfg = Release|Any CPU
+		{39AB1CA4-AC39-47E5-BB9F-E44FF15B282B}.Release|x64.Build.0 = Release|Any CPU
+		{39AB1CA4-AC39-47E5-BB9F-E44FF15B282B}.Release|x86.ActiveCfg = Release|Any CPU
+		{39AB1CA4-AC39-47E5-BB9F-E44FF15B282B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

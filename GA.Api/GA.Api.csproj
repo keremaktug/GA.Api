@@ -51,7 +51,7 @@
     <Compile Include="Operators\Mutation.cs" />
     <Compile Include="Types\Enums\MutationType.cs" />
     <Compile Include="Types\Enums\SortType.cs" />
-    <Compile Include="Graphic\GraphicGenerator.cs" />
+    <Compile Include="Graphic\GraphicHelper.cs" />
     <Compile Include="IO\TSPReader.cs" />
     <Compile Include="CollectionExtension.cs" />
     <Compile Include="Math\MathHelper.cs" />
