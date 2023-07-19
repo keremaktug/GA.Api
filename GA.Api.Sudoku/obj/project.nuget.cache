@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "l8pLE4YwbeOCDa67OjnxeJMJFSKvqewYuAIIH2rYKzSQL5+yyCwzt6cvTAdLxm85ZGn5sCy9p9fEujuIr8FhNA==",
+  "success": true,
+  "projectFilePath": "E:\\Udemy Course Project\\GA.Api\\GA.Api.Sudoku\\GA.Api.Sudoku.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kerem\\.nuget\\packages\\winforms.datavisualization\\1.8.0\\winforms.datavisualization.1.8.0.nupkg.sha512"
+  ],
+  "logs": []
+}

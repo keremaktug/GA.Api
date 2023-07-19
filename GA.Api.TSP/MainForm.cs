@@ -37,6 +37,7 @@ namespace GA.Api.TSP
             Clean();
 
             LoadCircularCities();
+            //LoadRandomCities();
         }
 
         private void Init()
@@ -44,7 +45,7 @@ namespace GA.Api.TSP
             cmbPopulationSize.SelectedIndex = 4;
             cmbCrossoverType.SelectedIndex = 2;
             cmbMutationType.SelectedIndex = 0;
-            cmbElitismRate.SelectedIndex = 0;
+            cmbElitismRate.SelectedIndex = 3;
         }
 
         private void Clean()
@@ -73,6 +74,24 @@ namespace GA.Api.TSP
                 float py = (float)System.Math.Cos(MathHelper.DegreeToRadian(i)) * radius;
                 cities.Add(new City(j, px, py));
                 j++;
+            }
+        }
+
+        private static void LoadRandomCities()
+        {
+            cities = new List<object>();
+
+            var width = 300;
+            var height = 300;
+
+            for (int i = 0; i < 100; i++)
+            {
+                var x = Random.Next(10, 290);
+                var y = Random.Next(10, 290);
+                x -= (int)(width * 0.5f);
+                y -= (int)(height * 0.5f);
+                cities.Add(new City(i + 1, x, y));
+                i++;
             }
         }
 

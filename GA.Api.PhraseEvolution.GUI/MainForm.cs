@@ -15,7 +15,8 @@ namespace GA.Api.PhraseEvolution.GUI
     {
         private static readonly Random rnd = new Random();
         private static string letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890,.";
-        private static string phrase = "abcdefghijkl";
+        private static string phrase = "Russel Crowe";
+
         private GeneticSolver gs = null;
 
         public MainForm()
@@ -31,7 +32,7 @@ namespace GA.Api.PhraseEvolution.GUI
 
         private void InitComboboxes()
         {
-            cmbCrossoverType.SelectedIndex = 0;
+            cmbCrossoverType.SelectedIndex = 1;
             cmbElitismRate.SelectedIndex = 2;
             cmbMutationType.SelectedIndex = 0;
             cmbPopulationSize.SelectedIndex = 5;
