@@ -64,7 +64,7 @@ namespace GA.Api.TSP
             cities = new List<object>();
 
             float radius = 100.0f;
-            int point_count = 24;
+            int point_count = 20;
 
             var j = 1;
 
@@ -84,7 +84,7 @@ namespace GA.Api.TSP
             var width = 300;
             var height = 300;
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 50; i++)
             {
                 var x = Random.Next(10, 290);
                 var y = Random.Next(10, 290);
