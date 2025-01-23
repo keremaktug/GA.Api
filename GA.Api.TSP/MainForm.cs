@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,8 +37,8 @@ namespace GA.Api.TSP
             Init();
             Clean();
 
-            LoadCircularCities();
-            //LoadRandomCities();
+            //LoadCircularCities();
+            LoadRandomCities();
         }
 
         private void Init()
@@ -64,7 +65,7 @@ namespace GA.Api.TSP
             cities = new List<object>();
 
             float radius = 100.0f;
-            int point_count = 20;
+            int point_count = 36;
 
             var j = 1;
 
@@ -84,7 +85,7 @@ namespace GA.Api.TSP
             var width = 300;
             var height = 300;
 
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 100; i++)
             {
                 var x = Random.Next(10, 290);
                 var y = Random.Next(10, 290);
@@ -110,9 +111,9 @@ namespace GA.Api.TSP
                 case 2: crossover_type = CrossoverType.PMX; break;
             }
 
-            double elitism_rate = Double.Parse(cmbElitismRate.SelectedItem.ToString());
+            double elitism_rate = Double.Parse(cmbElitismRate.SelectedItem.ToString(), CultureInfo.InvariantCulture);
 
-            gs = new GeneticSolver(1024 * pop_size_factor, 2500, elitism_rate / 10, 0.2, crossover_type);
+            gs = new GeneticSolver(1024 * pop_size_factor, 2500, elitism_rate / 10, 0.3, crossover_type);
             gs.GeneratorFunction = PathGenerator;
             gs.FitnessFunction = CalculateFitness_TSPProblem;
             gs.IterationCompleted += Gs_IterationCompleted;

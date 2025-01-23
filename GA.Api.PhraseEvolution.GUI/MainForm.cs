@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -15,7 +16,7 @@ namespace GA.Api.PhraseEvolution.GUI
     {
         private static readonly Random rnd = new Random();
         private static string letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890,.";
-        private static string phrase = "Russel Crowe";
+        private static string phrase = "YOU WILL NEVER WALK ALONE";
 
         private GeneticSolver gs = null;
 
@@ -89,7 +90,7 @@ namespace GA.Api.PhraseEvolution.GUI
                 case 2: crossover_type = CrossoverType.PMX; break;
             }
 
-            double elitism_rate = Double.Parse(cmbElitismRate.SelectedItem.ToString());
+            double elitism_rate = Double.Parse(cmbElitismRate.SelectedItem.ToString(), CultureInfo.InvariantCulture);
 
             gs = new GeneticSolver(1024 * pop_size_factor, 1000, elitism_rate / 10, 0.01, crossover_type);
             gs.GeneratorFunction = PhraseGenerator;

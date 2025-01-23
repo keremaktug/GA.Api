@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -75,7 +76,7 @@ namespace GA.Api.CardsProblem
                 case 2: crossover_type = CrossoverType.PMX; break;
             }
 
-            double elitism_rate = Double.Parse(cmbElitismRate.SelectedItem.ToString());
+            double elitism_rate = Double.Parse(cmbElitismRate.SelectedItem.ToString(), CultureInfo.InvariantCulture);
 
             gs = gs = new GeneticSolver(pop_size_factor * 5, 1000, elitism_rate / 10, 0.01, crossover_type)
             {
