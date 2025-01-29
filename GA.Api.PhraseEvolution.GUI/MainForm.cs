@@ -16,7 +16,7 @@ namespace GA.Api.PhraseEvolution.GUI
     {
         private static readonly Random rnd = new Random();
         private static string letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890,.";
-        private static string phrase = "YOU WILL NEVER WALK ALONE";
+        private static string phrase = "Those who live in glass houses should not throw stones";
 
         private GeneticSolver gs = null;
 
