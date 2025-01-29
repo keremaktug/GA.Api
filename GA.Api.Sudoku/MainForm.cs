@@ -2,7 +2,6 @@ using GA.Api.Graphic;
 using GA.Api.Math;
 using GA.Api.Types;
 using GA.Api.Types.Enums;
-using System.Text;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GA.Api.Sudoku

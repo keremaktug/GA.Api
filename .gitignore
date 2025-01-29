@@ -15,3 +15,8 @@
 /GA.Api.TSP/obj
 /GA.Api.Sudoku/bin
 /GA.Api.Sudoku/obj
+/GA.Api.Rastrigin/bin
+/GA.Api.Rastrigin/obj
+/GA.Api.Rectangles.GUI/.vs
+/GA.Api.Rectangles.GUI/bin
+/GA.Api.Rectangles.GUI/obj
