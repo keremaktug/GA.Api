@@ -13,10 +13,10 @@ namespace GA.Api._8Queens
 {
     public partial class MainForm : Form
     {
-        private static readonly Random rnd = new Random(32767);
-        private GeneticSolver g = null;
-        public List<RectangleStruct> RectangleStructs;
-        public Chromosome BestSolution;
+        private static readonly Random rnd = new Random();
+        private static GeneticSolver g = null;
+        public static List<RectangleStruct> RectangleStructs;
+        public static Chromosome BestSolution;
         public int factor = 20;
 
         public MainForm()
@@ -32,11 +32,11 @@ namespace GA.Api._8Queens
 
         public void Init()
         {
-            g = new GeneticSolver(1024, 500, 0.75, 0.1, CrossoverType.OnePointCrossover);
+            g = new GeneticSolver(32 * 1024, 500, 0.25, 0.01, CrossoverType.UniformCrossover);
             g.GeneratorFunction = VariablesGenerator;
             g.FitnessFunction = CalculateFitness;
             g.IterationCompleted += G_IterationCompleted;
-            g.SolutionFound += G_SolutionFound;
+            g.SolutionFound += G_SolutionFound;            
         }
 
         void CreateData()
@@ -48,9 +48,10 @@ namespace GA.Api._8Queens
             RectangleStructs.Add(new RectangleStruct(4, 6, 4, Brushes.Brown));
             RectangleStructs.Add(new RectangleStruct(5, 3, 3, Brushes.Chartreuse));
             RectangleStructs.Add(new RectangleStruct(6, 6, 5, Brushes.DarkBlue));
-            RectangleStructs.Add(new RectangleStruct(7, 1, 2, Brushes.DarkCyan));
-            RectangleStructs.Add(new RectangleStruct(8, 2, 1, Brushes.DarkOrange));
-            RectangleStructs.Add(new RectangleStruct(9, 1, 3, Brushes.DarkOrchid));
+            //RectangleStructs.Add(new RectangleStruct(7, 1, 2, Brushes.DarkCyan));
+            //RectangleStructs.Add(new RectangleStruct(8, 2, 1, Brushes.DarkOrange));
+            //RectangleStructs.Add(new RectangleStruct(9, 1, 3, Brushes.DarkOrchid));
+            //RectangleStructs.Add(new RectangleStruct(10, 1, 1, Brushes.BurlyWood));
 
             BestSolution = new Chromosome();
             BestSolution.Data.Add(2); BestSolution.Data.Add(1); BestSolution.Data.Add(0);
@@ -59,9 +60,10 @@ namespace GA.Api._8Queens
             BestSolution.Data.Add(4); BestSolution.Data.Add(9); BestSolution.Data.Add(0);
             BestSolution.Data.Add(9); BestSolution.Data.Add(11); BestSolution.Data.Add(0);
             BestSolution.Data.Add(12); BestSolution.Data.Add(3); BestSolution.Data.Add(0);
-            BestSolution.Data.Add(11); BestSolution.Data.Add(5); BestSolution.Data.Add(0);
-            BestSolution.Data.Add(12); BestSolution.Data.Add(9); BestSolution.Data.Add(0);
-            BestSolution.Data.Add(17); BestSolution.Data.Add(9); BestSolution.Data.Add(0);            
+            //BestSolution.Data.Add(11); BestSolution.Data.Add(5); BestSolution.Data.Add(0);
+            //BestSolution.Data.Add(12); BestSolution.Data.Add(9); BestSolution.Data.Add(0);
+            //BestSolution.Data.Add(17); BestSolution.Data.Add(9); BestSolution.Data.Add(0);
+            //BestSolution.Data.Add(1); BestSolution.Data.Add(1); BestSolution.Data.Add(0);
         }
 
         public Chromosome VariablesGenerator()
@@ -79,27 +81,34 @@ namespace GA.Api._8Queens
                 variables.Add(y);
                 variables.Add(o);
             }
-            
+
             return new Chromosome(variables);
         }
 
-        public double CalculateFitness(Chromosome chromosome)
+        public static double CalculateFitness(Chromosome chromosome)
         {
+            BestSolution = chromosome;
             var overlapping_area = CalculateOverlappingArea();
             var bbox = CalculateBoundingBox();
             int area = (bbox.Item3 - bbox.Item1) * (bbox.Item4 - bbox.Item2);
-            return area;
+            var illegal_rects = CalculateIllegalRectangles();
+            //return illegal_rects + (area * 2) + (overlapping_area * 10);
+            return area + (overlapping_area * 5) + illegal_rects;
         }
 
-        private void G_SolutionFound(object sender, Events.SolutionFoundEventArgs e)
+        private void G_SolutionFound(object sender, SolutionFoundEventArgs e)
         {
             MessageBox.Show("Solution Found");            
         }
 
-        private void G_IterationCompleted(object sender, Events.IterationCompletedEventArgs e)
+        private void G_IterationCompleted(object sender, IterationCompletedEventArgs e)
         {
-            AddPointsToChart(e.IterationCount, e.BestChromosome.Fitness, e.AverageFitness);                        
             BestSolution = e.BestChromosome;
+            AddPointsToChart(e.IterationCount, e.BestChromosome.Fitness, e.AverageFitness);
+            //listBox1.Items.Add(e.BestChromosome.Fitness);
+
+            listBox1.Items.Add($"{CalculateOverlappingArea()} {CalculateIllegalRectangles()} {e.BestChromosome.Fitness}");
+
             map.Refresh();
             chart1.Update();
             Application.DoEvents();
@@ -171,7 +180,30 @@ namespace GA.Api._8Queens
             DrawBoundingBox(e.Graphics);
         }
 
-        private Tuple<int, int, int, int> CalculateBoundingBox()
+        private static int CalculateIllegalRectangles()
+        {
+            int r = 0;
+            var j = 0;
+            for (var i = 0; i < BestSolution.Data.Count; i += 3)
+            {
+                var rect = RectangleStructs[j];
+                var id = rect.Id;
+                var x = (int)BestSolution.Data[i];
+                var y = (int)BestSolution.Data[i + 1];
+                var o = (int)BestSolution.Data[i + 2];
+                var w = rect.Width;
+                var h = rect.Height;
+
+                if ((x + w) > 19) r++;
+                if ((y + h) > 19) r++;
+                
+                j++;
+            }
+
+            return r;
+        }
+
+        private static Tuple<int, int, int, int> CalculateBoundingBox()
         {
             int min_x = int.MaxValue;
             int min_y = int.MaxValue;
@@ -211,7 +243,7 @@ namespace GA.Api._8Queens
             return new Tuple<int, int, int, int>(min_x, min_y, max_x, max_y);
         }
 
-        private int CalculateOverlappingArea()
+        private static int CalculateOverlappingArea()
         {
             var r = 0;
 
@@ -257,7 +289,7 @@ namespace GA.Api._8Queens
             return (int)(r * 0.5);
         }
 
-        private int OverlapArea(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2)
+        private static int OverlapArea(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2)
         {
             int left = System.Math.Max(x1, x2);
             int right = System.Math.Min(x1 + w1, x2 + w2);

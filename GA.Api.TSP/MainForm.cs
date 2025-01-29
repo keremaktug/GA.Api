@@ -62,7 +62,7 @@ namespace GA.Api.TSP
             cities = new List<object>();
 
             float radius = 100.0f;
-            int point_count = 18;
+            int point_count = 32;
 
             var j = 1;
 
@@ -82,7 +82,7 @@ namespace GA.Api.TSP
             var width = 300;
             var height = 300;
 
-            for (int i = 0; i < 36; i++)
+            for (int i = 0; i < 72; i++)
             {
                 var x = Random.Next(10, 290);
                 var y = Random.Next(10, 290);
@@ -118,7 +118,7 @@ namespace GA.Api.TSP
 
             double elitism_rate = Double.Parse(cmbElitismRate.SelectedItem.ToString(), CultureInfo.InvariantCulture);
 
-            gs = new GeneticSolver(1024 * pop_size_factor, 2500, elitism_rate / 10, 0.3, crossover_type);            
+            gs = new GeneticSolver(1024 * pop_size_factor, 2500, 0.5, 0.2, crossover_type);            
             gs.GeneratorFunction = PathGenerator;
             gs.FitnessFunction = CalculateFitness_TSPProblem;
             gs.IterationCompleted += Gs_IterationCompleted;
