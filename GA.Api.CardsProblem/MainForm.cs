@@ -78,7 +78,7 @@ namespace GA.Api.CardsProblem
 
             double elitism_rate = Double.Parse(cmbElitismRate.SelectedItem.ToString(), CultureInfo.InvariantCulture);
 
-            gs = gs = new GeneticSolver(pop_size_factor * 5, 1000, elitism_rate / 10, 0.01, crossover_type)
+            gs = gs = new GeneticSolver(100, 1000, elitism_rate / 10, 0.1, crossover_type)
             {
                 GeneratorFunction = CardsGenerator,
                 FitnessFunction = CalculateFitness

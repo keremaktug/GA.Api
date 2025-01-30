@@ -11,7 +11,7 @@ namespace GA.Api.PhraseEvolution
     {
         private static readonly Random rnd = new Random();
         private static string letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890,.";
-        private static string phrase = "to be or not to be";
+        private static string phrase = "Those who live in glass houses should not throw stones";
 
         static void Main(string[] args)
         {

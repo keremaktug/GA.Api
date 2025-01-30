@@ -1,7 +1,5 @@
 ﻿using GA.Api.Events;
 using GA.Api.Types;
-using System;
-using System.Runtime.InteropServices;
 
 namespace GA.Api.Rastrigin
 {

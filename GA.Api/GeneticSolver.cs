@@ -35,9 +35,9 @@ namespace GA.Api
         public event EventHandler<IterationCompletedEventArgs> IterationCompleted = delegate { };
 
         public event EventHandler<SolutionFoundEventArgs> SolutionFound = delegate { };
-
+        
         public PFitnessFunction FitnessFunction { get; set; }
-
+        
         public PGeneratorFunction GeneratorFunction { get; set; }
 
         public GeneticSolver(int population_size = 1024, int iteration_count = 1000, double elitism_ratio = 0.1, double mutation_ratio = 0.01, CrossoverType crossover_type = CrossoverType.OnePointCrossover)

@@ -12,7 +12,7 @@ namespace GA.Api.LinearEquationSolver
 
         static void Main(string[] args)
         {
-            var g = new GeneticSolver();
+            var g = new GeneticSolver(50, 100, 0.25, 0.01, Types.Enums.CrossoverType.UniformCrossover);
             g.GeneratorFunction = VariablesGenerator;
             g.FitnessFunction = CalculateFitness;
             g.IterationCompleted += G_IterationCompleted;
@@ -26,7 +26,7 @@ namespace GA.Api.LinearEquationSolver
 
             for (int i = 0; i < 4; i++)
             {
-                variables.Add(rnd.Next(0, 200));
+                variables.Add(rnd.Next(0, 100));
             }
 
             return new Chromosome(variables);
@@ -48,7 +48,7 @@ namespace GA.Api.LinearEquationSolver
             var v2 = (int)chromosome.Data[1];
             var v3 = (int)chromosome.Data[2];
             var v4 = (int)chromosome.Data[3];
-            Console.WriteLine($"{e.BestChromosome.Fitness} {e.AverageFitness} Iteration completed | {v1} {v2} {v3} {v4} | {v1 + v2 + v3 + v4}");
+            Console.WriteLine($"Iteration : {e.IterationCount} Average Fitness : {e.AverageFitness} | {v1} + {v2} + {v3} + {v4} = {v1 + v2 + v3 + v4}");
         }
 
         private static void G_SolutionFound(object sender, SolutionFoundEventArgs e)

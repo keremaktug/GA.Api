@@ -32,7 +32,7 @@ namespace GA.Api._8Queens
 
         public void Init()
         {
-            g = new GeneticSolver(32 * 1024, 500, 0.25, 0.01, CrossoverType.UniformCrossover);
+            g = new GeneticSolver(64 * 1024, 500, 0.35, 0.1, CrossoverType.UniformCrossover);
             g.GeneratorFunction = VariablesGenerator;
             g.FitnessFunction = CalculateFitness;
             g.IterationCompleted += G_IterationCompleted;
@@ -48,10 +48,11 @@ namespace GA.Api._8Queens
             RectangleStructs.Add(new RectangleStruct(4, 6, 4, Brushes.Brown));
             RectangleStructs.Add(new RectangleStruct(5, 3, 3, Brushes.Chartreuse));
             RectangleStructs.Add(new RectangleStruct(6, 6, 5, Brushes.DarkBlue));
-            //RectangleStructs.Add(new RectangleStruct(7, 1, 2, Brushes.DarkCyan));
-            //RectangleStructs.Add(new RectangleStruct(8, 2, 1, Brushes.DarkOrange));
-            //RectangleStructs.Add(new RectangleStruct(9, 1, 3, Brushes.DarkOrchid));
-            //RectangleStructs.Add(new RectangleStruct(10, 1, 1, Brushes.BurlyWood));
+            RectangleStructs.Add(new RectangleStruct(7, 1, 2, Brushes.DarkCyan));
+            RectangleStructs.Add(new RectangleStruct(8, 2, 1, Brushes.DarkOrange));
+            RectangleStructs.Add(new RectangleStruct(9, 1, 3, Brushes.DarkOrchid));
+            RectangleStructs.Add(new RectangleStruct(10, 1, 1, Brushes.BurlyWood));
+            RectangleStructs.Add(new RectangleStruct(11, 2, 1, Brushes.Cyan));
 
             BestSolution = new Chromosome();
             BestSolution.Data.Add(2); BestSolution.Data.Add(1); BestSolution.Data.Add(0);
@@ -60,10 +61,11 @@ namespace GA.Api._8Queens
             BestSolution.Data.Add(4); BestSolution.Data.Add(9); BestSolution.Data.Add(0);
             BestSolution.Data.Add(9); BestSolution.Data.Add(11); BestSolution.Data.Add(0);
             BestSolution.Data.Add(12); BestSolution.Data.Add(3); BestSolution.Data.Add(0);
-            //BestSolution.Data.Add(11); BestSolution.Data.Add(5); BestSolution.Data.Add(0);
-            //BestSolution.Data.Add(12); BestSolution.Data.Add(9); BestSolution.Data.Add(0);
-            //BestSolution.Data.Add(17); BestSolution.Data.Add(9); BestSolution.Data.Add(0);
-            //BestSolution.Data.Add(1); BestSolution.Data.Add(1); BestSolution.Data.Add(0);
+            BestSolution.Data.Add(11); BestSolution.Data.Add(5); BestSolution.Data.Add(0);
+            BestSolution.Data.Add(12); BestSolution.Data.Add(9); BestSolution.Data.Add(0);
+            BestSolution.Data.Add(17); BestSolution.Data.Add(9); BestSolution.Data.Add(0);
+            BestSolution.Data.Add(1); BestSolution.Data.Add(1); BestSolution.Data.Add(0);
+            BestSolution.Data.Add(10); BestSolution.Data.Add(10); BestSolution.Data.Add(0);
         }
 
         public Chromosome VariablesGenerator()
@@ -92,8 +94,7 @@ namespace GA.Api._8Queens
             var bbox = CalculateBoundingBox();
             int area = (bbox.Item3 - bbox.Item1) * (bbox.Item4 - bbox.Item2);
             var illegal_rects = CalculateIllegalRectangles();
-            //return illegal_rects + (area * 2) + (overlapping_area * 10);
-            return area + (overlapping_area * 5) + illegal_rects;
+            return (overlapping_area * 5) + (area * 2) + (illegal_rects * 10);
         }
 
         private void G_SolutionFound(object sender, SolutionFoundEventArgs e)
@@ -105,9 +106,12 @@ namespace GA.Api._8Queens
         {
             BestSolution = e.BestChromosome;
             AddPointsToChart(e.IterationCount, e.BestChromosome.Fitness, e.AverageFitness);
-            //listBox1.Items.Add(e.BestChromosome.Fitness);
 
-            listBox1.Items.Add($"{CalculateOverlappingArea()} {CalculateIllegalRectangles()} {e.BestChromosome.Fitness}");
+            var bbox = CalculateBoundingBox();
+            int area = (bbox.Item3 - bbox.Item1) * (bbox.Item4 - bbox.Item2);
+            label1.Text = $"BBox Area : {area}";
+            label2.Text = $"Overlapping Area : {CalculateOverlappingArea().ToString()}";
+            label3.Text = $"Illegal Rectangle Count : {CalculateIllegalRectangles().ToString()}";
 
             map.Refresh();
             chart1.Update();
