@@ -45,7 +45,7 @@ namespace GA.Api.PhraseEvolution
 
             Console.WriteLine(s);
         }
-
+      
         public static Chromosome PhraseGenerator()
         {
             var characters = new List<object>();
@@ -69,6 +69,6 @@ namespace GA.Api.PhraseEvolution
             }
 
             return f;
-        }
+        }      
     }
 }

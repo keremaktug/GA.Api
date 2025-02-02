@@ -92,9 +92,17 @@ namespace GA.Api
 
                 switch (CrossoverType)
                 {
-                    case CrossoverType.OnePointCrossover: cross_chromosome_data = Crossover.OnePointCrossover(ch1_data, ch2_data, axis).Item1; break;
-                    case CrossoverType.UniformCrossover: cross_chromosome_data = Crossover.UniformCrossover(ch1_data, ch2_data).Item1; break;
-                    case CrossoverType.PMX: cross_chromosome_data = Crossover.PMX(ch1_data, ch2_data); break;
+                    case CrossoverType.OnePointCrossover: 
+                        cross_chromosome_data = Crossover.OnePointCrossover(ch1_data, ch2_data, axis).Item1; 
+                    break;
+
+                    case CrossoverType.UniformCrossover:                         
+                        cross_chromosome_data = Crossover.UniformCrossover(ch1_data, ch2_data).Item1; 
+                    break;
+
+                    case CrossoverType.PMX: 
+                        cross_chromosome_data = Crossover.PMX(ch1_data, ch2_data); 
+                    break;
                 }
 
                 var cross_chromosome = new Chromosome(cross_chromosome_data);

@@ -82,7 +82,7 @@ namespace GA.Api.TSP
             var width = 300;
             var height = 300;
 
-            for (int i = 0; i < 72; i++)
+            for (int i = 0; i < 108; i++)
             {
                 var x = Random.Next(10, 290);
                 var y = Random.Next(10, 290);

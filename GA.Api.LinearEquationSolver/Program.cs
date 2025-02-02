@@ -12,7 +12,7 @@ namespace GA.Api.LinearEquationSolver
 
         static void Main(string[] args)
         {
-            var g = new GeneticSolver(50, 100, 0.25, 0.01, Types.Enums.CrossoverType.UniformCrossover);
+            var g = new GeneticSolver(10, 100, 0.25, 0.01, Types.Enums.CrossoverType.UniformCrossover);
             g.GeneratorFunction = VariablesGenerator;
             g.FitnessFunction = CalculateFitness;
             g.IterationCompleted += G_IterationCompleted;
